@@ -1,0 +1,10 @@
+<h2>{{currentSelectedHero.name}} Details</h2>
+<button class="button" type="button" (click)="onCloseDetails()">Close Details</button>
+  <div><span>id: </span>{{currentSelectedHero.id}}</div>
+  <div><span>name: </span>{{currentSelectedHero.name | uppercase}}</div>
+  <div>
+    <label for="name">
+      currentSelectedHero name:
+      <input id="name" placeholder="Name" [(ngModel)]="currentSelectedHero.name">
+    </label>
+  </div>
