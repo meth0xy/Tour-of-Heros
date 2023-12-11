@@ -16,16 +16,18 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent {
   heroes!: Hero[];
   currentSelectedHero : Hero | undefined;
-  selectHero (hero: Hero | undefined) {
-    this.currentSelectedHero = hero;
-  }
-  getHeroes () {
-    this.heroes = this.heroService.getHeros();
-  }
+
+  constructor(private heroService: HeroService) {}
 
   ngOnInit() {
     this.getHeroes();
   }
 
-  constructor(private heroService: HeroService) {}
+  selectHero (hero: Hero | undefined) {
+    this.currentSelectedHero = hero;
+  }
+
+  getHeroes () {
+    this.heroService.getHeros().subscribe(heroes => this.heroes = heroes);
+  }
 }
