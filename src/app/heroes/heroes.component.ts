@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Hero } from '../hero';
-import { HeroDetailsComponent } from '../hero-details/hero-details.component';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-heroes',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeroDetailsComponent],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.scss'
 })
@@ -22,11 +22,6 @@ export class HeroesComponent {
 
   ngOnInit() {
     this.getHeroes();
-  }
-
-  selectHero (hero: Hero | undefined) {
-    this.currentSelectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero?.id}`)
   }
 
   getHeroes () {
