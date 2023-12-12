@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Hero } from '../hero';
 import { HeroDetailsComponent } from '../hero-details/hero-details.component';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -17,7 +18,7 @@ export class HeroesComponent {
   heroes!: Hero[];
   currentSelectedHero : Hero | undefined;
 
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: HeroService, private messageService : MessageService) {}
 
   ngOnInit() {
     this.getHeroes();
@@ -25,6 +26,7 @@ export class HeroesComponent {
 
   selectHero (hero: Hero | undefined) {
     this.currentSelectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero?.id}`)
   }
 
   getHeroes () {
