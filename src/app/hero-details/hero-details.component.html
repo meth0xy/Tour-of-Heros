@@ -1,5 +1,5 @@
 <h2>{{currentSelectedHero.name}} Details</h2>
-<button class="button" type="button" (click)="onCloseDetails()">Close Details</button>
+<a class="button" (click)="goBack()">Close Details</a>
   <div><span>id: </span>{{currentSelectedHero.id}}</div>
   <div><span>name: </span>{{currentSelectedHero.name | uppercase}}</div>
   <div>
