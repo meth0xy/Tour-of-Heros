@@ -25,6 +25,6 @@ export class HeroesComponent {
   }
 
   getHeroes () {
-    this.heroService.getHeros().subscribe(heroes => this.heroes = heroes);
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 }

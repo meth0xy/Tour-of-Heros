@@ -25,6 +25,11 @@ export class HeroDetailsComponent {
     this.heroService.getHero(id).subscribe(hero => this.currentSelectedHero = hero);
   }
 
+  save () {
+    if(!this.currentSelectedHero) return;
+    this.heroService.updateHero(this.currentSelectedHero).subscribe(() =>  this.goBack())
+  }
+
   goBack() {
     this.location.back();
   }
